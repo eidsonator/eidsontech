@@ -1,7 +1,10 @@
 {% extends 'base.html.twig' %}
 
 {% block body %}
-    {{ html  | raw }}
+    <article class="posts">
+        {{ html  | raw }}
+    </article>
+
 
 
     <div id="disqus_thread"></div>

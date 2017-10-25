@@ -3,7 +3,7 @@
 {% block body %}
    {% for post in posts %}
        <div class="card">
-           <div class="card-body">
+           <div class="card-body posts">
                {{ post.html  | raw }}
 
                <a href="{{ post.uri }}">Read More</a>
