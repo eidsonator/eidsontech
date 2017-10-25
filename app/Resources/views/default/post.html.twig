@@ -1,17 +1,75 @@
 {% extends 'base.html.twig' %}
 
+
+
 {% block body %}
+
+    <script>window.twttr = (function(d, s, id) {
+            var js, fjs = d.getElementsByTagName(s)[0],
+                t = window.twttr || {};
+            if (d.getElementById(id)) return t;
+            js = d.createElement(s);
+            js.id = id;
+            js.src = "https://platform.twitter.com/widgets.js";
+            fjs.parentNode.insertBefore(js, fjs);
+
+            t._e = [];
+            t.ready = function(f) {
+                t._e.push(f);
+            };
+
+            return t;
+        }(document, "script", "twitter-wjs"));
+
+        window.fbAsyncInit = function() {
+            FB.init({
+                appId      : '189930558110456',
+                xfbml      : true,
+                version    : 'v2.8'
+            });
+        };
+
+        (function(d, s, id){
+            var js, fjs = d.getElementsByTagName(s)[0];
+            if (d.getElementById(id)) {return;}
+            js = d.createElement(s); js.id = id;
+            js.src = "//connect.facebook.net/en_US/sdk.js";
+            fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+    </script>
+
+
     <article class="posts">
+
         {{ html  | raw }}
+
+        <div class="social-media-buttons">
+            <div id="fb-root"></div>
+            <div class="float-left">
+                <div
+                        data-href="https://eidsontech.net/{{ post }}"
+                        data-layout="button_count"
+                        class="fb-like"
+                        data-share="true"
+                        data-show-faces="true">
+                </div>
+            </div>
+            <div class="float-left" style="margin-left: 5px; margin-top: 1px;">
+                <a class="twitter-share-button"
+                   style="margin-top: 25px;"
+                   href="https://twitter.com/intent/tweet">Tweet</a>
+            </div>
+        </div>
     </article>
+
 
 
 
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-        this.page.url = "http://eidsontech.net/";  // Replace PAGE_URL with your page's canonical URL variable
-        this.page.identifier = "{{ post }}"; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+        this.page.url = "http://eidsontech.net/";
+        this.page.identifier = "{{ post }}";
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
