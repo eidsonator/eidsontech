@@ -1,0 +1,28 @@
+{
+  "dependencies": {
+    "@symfony/webpack-encore": "^0.16.0",
+    "node-sass": "^4.5.3",
+    "sass-loader": "^6.0.6"
+  },
+  "name": "eidson.info",
+  "description": "eidsontech ==========",
+  "version": "1.0.0",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eidsonator/eidsontech.git"
+  },
+  "author": "Todd Eidson <todd@eidson.info>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eidsonator/eidsontech/issues"
+  },
+  "homepage": "https://github.com/eidsonator/eidsontech#readme"
+}

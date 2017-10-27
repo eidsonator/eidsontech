@@ -1,0 +1,17 @@
+.posts > p > img {
+  margin-right: auto;
+  margin-left: auto;
+  display: block;
+}
+
+@media screen and (max-width: 719px) {
+  .posts > p > img {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .posts > p > img {
+    width: 50%;
+  }
+}
