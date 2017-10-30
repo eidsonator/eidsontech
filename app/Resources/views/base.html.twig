@@ -72,11 +72,18 @@
 
         <div class="container">
             <div class="row">
-                <div class="col-sm-10">
+                <div class="col-sm-9">
                     {% block body %}{% endblock %}
                 </div>
-                <div class="col-sm-2" style="padding-top: 54px">
-                    <img src="{{ asset('img/profile.jpg') }}" width="100%">
+                <div class="col-sm-3">
+                    <h3>About Todd</h3>
+                    <img src="{{ asset('img/profile.jpg') }}" class="float-left" style="margin-right: 15px;" width="50%">
+                    <p>
+                        Todd Eidson is an application developer and life-long learner.
+                        I am a pragmatic programmer, believer in clean coding, and evangelist for extensible and reusable code.
+                        My loves include collectomg old jazz records and going to live music performances.
+                    </p>
+
                 </div>
             </div>
         </div>
