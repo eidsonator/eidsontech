@@ -19,14 +19,16 @@ class DefaultController extends Controller
         $posts = [];
         $files = array_reverse(scandir($basedir . 'src/AppBundle/Content'));
         foreach ($files as $file) {
-            $text = file_get_contents($basedir . 'src/AppBundle/Content/' . $file);
-            $posts[] = [
-                'html' => $this->mdToHtml($text),
-                'uri' => $this->generateUrl(
-                    'post',
-                    ['post' => str_replace('.md', '', $file)]
-                )
+            if ($file !== '.' && $file !== '..') {
+                $text = file_get_contents($basedir . 'src/AppBundle/Content/' . $file);
+                $posts[] = [
+                    'html' => $this->mdToHtml($text),
+                    'uri' => $this->generateUrl(
+                        'post',
+                        ['post' => str_replace('.md', '', $file)]
+                    )
                 ];
+            }
         }
 
         return $this->render('default/index.html.twig', [
@@ -73,10 +75,7 @@ class DefaultController extends Controller
     public function mdToHtml($text)
     {
         $converter = new CommonMarkConverter();
-        $parser = new \cebe\markdown\GithubMarkdown();
-        $parser->html5 = true;
         $html = $converter->convertToHtml($text);
-        $html = $parser->parse($text);
         return $html;
     }
 
