@@ -20,9 +20,8 @@ class DefaultController extends Controller
         $files = array_reverse(scandir($basedir . 'src/AppBundle/Content'));
         foreach ($files as $file) {
             if ($file !== '.' && $file !== '..') {
-                $text = file_get_contents($basedir . 'src/AppBundle/Content/' . $file);
                 $posts[] = [
-                    'html' => $this->mdToHtml($text),
+                    'html' => $this->getSnippet($basedir . 'src/AppBundle/Content/' . $file),
                     'uri' => $this->generateUrl(
                         'post',
                         ['post' => str_replace('.md', '', $file)]
@@ -75,8 +74,21 @@ class DefaultController extends Controller
     public function mdToHtml($text)
     {
         $converter = new CommonMarkConverter();
-        $html = $converter->convertToHtml($text);
-        return $html;
+        return $converter->convertToHtml($text);
+    }
+
+    public function getSnippet($file)
+    {
+        $fp = fopen($file, "r");
+        $text = '';
+        for ($i = 0; $i <= 10; $i++) {
+            $text .= fgets($fp);
+            if (feof($fp)) {
+                break;
+            }
+        }
+        fclose($fp);
+        return $this->mdToHtml($text);
     }
 
 }
