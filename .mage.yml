@@ -1,0 +1,22 @@
+magephp:
+    environments:
+        prod:
+            user: root
+            branch: master
+            from: ./
+            host_path: /var/www/html
+            releases: 3
+            exclude:
+                - ./var/cache/*
+                - ./var/log/*
+                - ./web/app_dev.php
+            hosts:
+                - eidson.info
+            pre-deploy:
+                - git/update
+                - composer/install
+                - composer/dump-autoload
+            on-deploy:
+                - symfony/cache-clear: { env: 'prod' }
+                - symfony/cache-warmup: { env: 'prod' }
+                - symfony/assets-install: { env: 'prod' }
