@@ -40,36 +40,13 @@ class DefaultController extends Controller
      */
     public function postAction($post)
     {
-        $basedir = realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR;
+        $post =  $this->getDoctrine()
+            ->getRepository('AppBundle:Post')
+            ->findOneBy(['url' => $post]);
 
-        $file = $basedir . "src/AppBundle/Content/$post.md";
-        $text = file_get_contents($file);
-        $html = $this->mdToHtml($text);
-        $title = $this->getTitle($file);
-        $description = $this->getDescription($file);
-        $image = $this->getImage($file);
         return $this->render('default/post.html.twig', [
-            'title' => $title,
-            'description' => $description,
-            'image' => $image,
-            'post' => $post,
-            'html' => $html
+            'post' => $post
         ]);
-    }
-
-    public function getImage($file)
-    {
-        return 'computer_code.png';
-    }
-
-    public function getDescription($file)
-    {
-        return 'I\'ve been wanting to start blogging for quite some time now, and I figured there is no time like the present.';
-    }
-
-    public function getTitle($file)
-    {
-        return 'Code Highlighting in HTML';
     }
 
     /**
