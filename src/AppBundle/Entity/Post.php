@@ -220,7 +220,7 @@ class Post
     /**
      * @return DateTimeType
      */
-    public function getPublished(): DateTimeType
+    public function getPublished()
     {
         return $this->published;
     }
@@ -239,7 +239,7 @@ class Post
     /**
      * @return string
      */
-    public function getSlug(): string
+    public function getSlug()
     {
         return $this->slug;
     }
