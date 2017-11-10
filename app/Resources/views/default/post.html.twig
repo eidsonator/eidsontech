@@ -2,11 +2,11 @@
 
 {% block meta %}
     <meta name="description" content="A programming blog by Todd Eidson">
-    <meta property="og:url" content="http://eidson.info/post/{{ post }}">
+    <meta property="og:url" content="http://eidson.info/post/{{ post.url }}">
     <meta property="og:type" content="blog">
-    <meta property="og:title" content="{{ title }} - eidson.info">
-    <meta property="og:description" content="{{ description }}">
-    <meta property="og:image" content="http://eidson.info/img/{{ image }}">
+    <meta property="og:title" content="{{ post.title }} - eidson.info">
+    <meta property="og:description" content="{{ post.slug }}">
+    <meta property="og:image" content="http://eidson.info/img/{{ post.image }}">
     <meta property="fb:app_id" content="136639210391980">
 {% endblock %}
 
@@ -50,13 +50,13 @@
 
     <article class="posts">
 
-        {{ html  | raw }}
+        {{ post.text  | raw }}
 
         <div class="social-media-buttons">
             <div id="fb-root"></div>
             <div class="float-left">
                 <div
-                        data-href="http://eidson.info/post/{{ post }}"
+                        data-href="http://eidson.info/post/{{ post.url }}"
                         data-layout="button_count"
                         class="fb-like"
                         data-share="true"
@@ -78,7 +78,7 @@
     <script>
         var disqus_config = function () {
         this.page.url = "http://eidson.info/";
-        this.page.identifier = "{{ post }}";
+        this.page.identifier = "{{ post.url }}";
         };
 
         (function() { // DON'T EDIT BELOW THIS LINE
