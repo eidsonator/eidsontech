@@ -2,6 +2,8 @@
 
 namespace AppBundle\Entity;
 
+use AppBundle\Util\Markdown;
+use Doctrine\DBAL\Types\DateTimeType;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -56,6 +58,19 @@ class Post
      */
     private $text;
 
+    /**
+     * @var DateTimeType
+     *
+     * @ORM\Column(name="published", type="datetime")
+     */
+    private $published;
+
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="slug", type="string", length=2048)
+     */
+    private $slug;
 
     /**
      * Get id
@@ -184,7 +199,59 @@ class Post
      */
     public function getText()
     {
-        return $this->text;
+        return Markdown::toHtml($this->text);
+    }
+
+    /**
+     * @return string
+     */
+    public function getIntro()
+    {
+        $lines = explode(PHP_EOL, $this->text);
+        $md = '';
+        $count = count($lines);
+        $end = $count > 10 ? 10 : $count - 1;
+        for ($i = 0; $i <= $end; $i++) {
+            $md .= $lines[$i];
+        }
+        return Markdown::toHtml($md);
+    }
+
+    /**
+     * @return DateTimeType
+     */
+    public function getPublished(): DateTimeType
+    {
+        return $this->published;
+    }
+
+    /**
+     * @param DateTimeType $published
+     * @return $this
+     */
+    public function setPublished(DateTimeType $published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * @return string
+     */
+    public function getSlug(): string
+    {
+        return $this->slug;
+    }
+
+    /**
+     * @param string $slug
+     * @return $this
+     */
+    public function setSlug(string $slug)
+    {
+        $this->slug = $slug;
+        return $this;
     }
 }
 
