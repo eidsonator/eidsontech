@@ -10,6 +10,7 @@ magephp:
                 - ./var/cache/*
                 - ./var/log/*
                 - ./web/app_dev.php
+                - ./node_modules/*
             hosts:
                 - eidson.info
             pre-deploy:
