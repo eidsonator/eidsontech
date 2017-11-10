@@ -38,6 +38,14 @@ class DefaultController extends Controller
     }
 
     /**
+     */
+     * @Route("/portfolio")
+    public function portfolioAction()
+    {
+        return $this->render(':default:portfolio.html.twig');
+    }
+
+    /**
      * @Route("/resume", name="resume")
      */
     public function resumeAction()
