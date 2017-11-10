@@ -14,21 +14,9 @@ class DefaultController extends Controller
      */
     public function indexAction(Request $request)
     {
-        $basedir = realpath($this->getParameter('kernel.project_dir')).DIRECTORY_SEPARATOR;
-
-        $posts = [];
-        $files = array_reverse(scandir($basedir . 'src/AppBundle/Content'));
-        foreach ($files as $file) {
-            if ($file !== '.' && $file !== '..') {
-                $posts[] = [
-                    'html' => $this->getSnippet($basedir . 'src/AppBundle/Content/' . $file),
-                    'uri' => $this->generateUrl(
-                        'post',
-                        ['post' => str_replace('.md', '', $file)]
-                    )
-                ];
-            }
-        }
+        $posts = $this->getDoctrine()
+            ->getRepository('AppBundle:Post')
+            ->findBy([], ['id' => 'DESC']);
 
         return $this->render('default/index.html.twig', [
             'posts' => $posts
@@ -64,30 +52,4 @@ class DefaultController extends Controller
     {
         return $this->render(':default:aboutMe.html.twig');
     }
-
-
-    /**
-     * @param $text
-     * @return string
-     */
-    public function mdToHtml($text)
-    {
-        $converter = new CommonMarkConverter();
-        return $converter->convertToHtml($text);
-    }
-
-    public function getSnippet($file)
-    {
-        $fp = fopen($file, "r");
-        $text = '';
-        for ($i = 0; $i <= 10; $i++) {
-            $text .= fgets($fp);
-            if (feof($fp)) {
-                break;
-            }
-        }
-        fclose($fp);
-        return $this->mdToHtml($text);
-    }
-
 }
