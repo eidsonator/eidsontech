@@ -1,4 +1,5 @@
 magephp:
+    log_dir: ./../../var/logs/mage
     environments:
         prod:
             user: root
