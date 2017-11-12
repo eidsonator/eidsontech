@@ -2,11 +2,11 @@
 
 {% block meta %}
     <meta name="description" content="A programming blog by Todd Eidson">
-    <meta property="og:url" content="http://eidson.info/post/{{ post.url }}">
+    <meta property="og:url" content="https://eidson.info/post/{{ post.url }}">
     <meta property="og:type" content="blog">
     <meta property="og:title" content="{{ post.title }} - eidson.info">
     <meta property="og:description" content="{{ post.slug }}">
-    <meta property="og:image" content="http://eidson.info/img/{{ post.image }}">
+    <meta property="og:image" content="https://eidson.info/img/{{ post.image }}">
     <meta property="fb:app_id" content="136639210391980">
 {% endblock %}
 
@@ -42,7 +42,7 @@
             var js, fjs = d.getElementsByTagName(s)[0];
             if (d.getElementById(id)) {return;}
             js = d.createElement(s); js.id = id;
-            js.src = "//connect.facebook.net/en_US/sdk.js";
+            js.src = "https://connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
         }(document, 'script', 'facebook-jssdk'));
     </script>
@@ -57,7 +57,7 @@
             <div id="fb-root"></div>
             <div class="float-left">
                 <div
-                        data-href="http://eidson.info/post/{{ post.url }}"
+                        data-href="https://eidson.info/post/{{ post.url }}"
                         data-layout="button_count"
                         class="fb-like"
                         data-share="true"
@@ -78,7 +78,7 @@
     <div id="disqus_thread"></div>
     <script>
         var disqus_config = function () {
-        this.page.url = "http://eidson.info/";
+        this.page.url = "https://eidson.info/";
         this.page.identifier = "{{ post.url }}";
         };
 
