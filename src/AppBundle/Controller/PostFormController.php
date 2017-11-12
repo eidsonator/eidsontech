@@ -10,7 +10,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class PostFormController extends Controller
 {
     /**
-     * @Route("/form/post", name="")
+     * @Route("/admin/form/post", name="")
      * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
