@@ -18,10 +18,8 @@ class PostType extends AbstractType
             ->add('url')
             ->add('title')
             ->add('image')
-            ->add(
-                'tags'
-            )
-            ->add('markdown')
+            ->add('tags')
+            ->add('text')
             ->add('published')
             ->add('slug')
             ->add('keywords')
