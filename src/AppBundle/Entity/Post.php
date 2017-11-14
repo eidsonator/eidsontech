@@ -2,9 +2,8 @@
 
 namespace AppBundle\Entity;
 
-use AppBundle\Util\Markdown;
-use Doctrine\DBAL\Types\DateTimeType;
 use Doctrine\ORM\Mapping as ORM;
+use AppBundle\Util\Markdown;
 
 /**
  * Post
@@ -33,7 +32,7 @@ class Post
     /**
      * @var string
      *
-     * @ORM\Column(name="title", type="string", length=255)
+     * @ORM\Column(name="title", type="string", length=255, unique=true)
      */
     private $title;
 
@@ -47,30 +46,42 @@ class Post
     /**
      * @var array
      *
-     * @ORM\Column(name="tags", type="array")
+     * @ORM\Column(name="tags", type="simple_array", nullable=true)
      */
     private $tags;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="text", type="text")
+     * @ORM\Column(name="markdown", type="text")
      */
-    private $text;
+    private $markdown;
 
     /**
-     * @var DateTimeType
+     * @var \DateTime
      *
-     * @ORM\Column(name="published", type="datetime")
+     * @ORM\Column(name="published", type="date")
      */
     private $published;
 
     /**
      * @var string
      *
-     * @ORM\Column(name="slug", type="string", length=2048)
+     * @ORM\Column(name="slug", type="text")
      */
     private $slug;
+
+    /**
+     * @var array
+     *
+     * @ORM\Column(name="keywords", type="simple_array", nullable=true)
+     */
+    private $keywords;
+
+    public function __construct()
+    {
+        $this->setPublished(new \DateTime('now'));
+    }
 
     /**
      * Get id
@@ -179,57 +190,37 @@ class Post
     }
 
     /**
-     * Set text
+     * Set markdown
      *
-     * @param string $text
+     * @param string $markdown
      *
      * @return Post
      */
-    public function setText($text)
+    public function setMarkdown($markdown)
     {
-        $this->text = $text;
+        $this->markdown = $markdown;
 
         return $this;
     }
 
     /**
-     * Get text
+     * Get markdown
      *
      * @return string
      */
-    public function getText()
+    public function getMarkdown()
     {
-        return Markdown::toHtml($this->text);
+        return $this->markdown;
     }
 
     /**
-     * @return string
+     * Set published
+     *
+     * @param \DateTime $published
+     *
+     * @return Post
      */
-    public function getIntro()
-    {
-        $lines = explode(PHP_EOL, $this->text);
-        $md = '';
-        $count = count($lines);
-        $end = $count > 10 ? 10 : $count - 1;
-        for ($i = 0; $i <= $end; $i++) {
-            $md .= $lines[$i];
-        }
-        return Markdown::toHtml($md);
-    }
-
-    /**
-     * @return DateTimeType
-     */
-    public function getPublished(): DateTimeType
-    {
-        return $this->published;
-    }
-
-    /**
-     * @param DateTimeType $published
-     * @return $this
-     */
-    public function setPublished(DateTimeType $published)
+    public function setPublished($published)
     {
         $this->published = $published;
 
@@ -237,21 +228,86 @@ class Post
     }
 
     /**
+     * Get published
+     *
+     * @return \DateTime
+     */
+    public function getPublished()
+    {
+        return $this->published;
+    }
+
+    /**
+     * Set slug
+     *
+     * @param string $slug
+     *
+     * @return Post
+     */
+    public function setSlug($slug)
+    {
+        $this->slug = $slug;
+
+        return $this;
+    }
+
+    /**
+     * Get slug
+     *
      * @return string
      */
-    public function getSlug(): string
+    public function getSlug()
     {
         return $this->slug;
     }
 
     /**
-     * @param string $slug
-     * @return $this
+     * Set keywords
+     *
+     * @param array $keywords
+     *
+     * @return Post
      */
-    public function setSlug(string $slug)
+    public function setKeywords($keywords)
     {
-        $this->slug = $slug;
+        $this->keywords = $keywords;
+
         return $this;
+    }
+
+    /**
+     * Get keywords
+     *
+     * @return array
+     */
+    public function getKeywords()
+    {
+        return $this->keywords;
+    }
+
+    /**
+     * Get text
+     *
+     * @return string
+     */
+    public function getHtml()
+    {
+        return Markdown::toHtml($this->getMarkdown());
+    }
+
+    /**
+     * @return string
+     */
+    public function getIntro()
+    {
+        $lines = explode(PHP_EOL, $this->getMarkdown());
+        $md = '';
+        $count = count($lines);
+        $end = $count > 10 ? 10 : $count - 1;
+        for ($i = 0; $i <= $end; $i++) {
+            $md .= $lines[$i];
+        }
+        return Markdown::toHtml($md);
     }
 }
 

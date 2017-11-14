@@ -5,7 +5,6 @@ namespace AppBundle\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use League\CommonMark\CommonMarkConverter;
 
 class DefaultController extends Controller
 {
@@ -16,7 +15,7 @@ class DefaultController extends Controller
     {
         $posts = $this->getDoctrine()
             ->getRepository('AppBundle:Post')
-            ->findBy([], ['id' => 'DESC']);
+            ->findBy([], ['published' => 'DESC']);
 
         return $this->render('default/index.html.twig', [
             'posts' => $posts
