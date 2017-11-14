@@ -107,5 +107,15 @@
     <script async src="{{ asset('build/app.js') }}"></script>
     <script src="{{ asset('bundles/app/vendor/highlightjs/highlight.pack.js') }}"></script>
     <script>hljs.initHighlightingOnLoad();</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-109665745-1"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'UA-109665745-1');
+    </script>
+
     {% block javascripts %}{% endblock %}
 </html>
