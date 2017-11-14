@@ -3,6 +3,7 @@
 namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -17,12 +18,20 @@ class PostType extends AbstractType
             ->add('url')
             ->add('title')
             ->add('image')
-            ->add('tags')
-            ->add('text')
+            ->add(
+                'tags'
+            )
+            ->add('markdown')
             ->add('published')
-            ->add('slug');
+            ->add('slug')
+            ->add('keywords')
+            ->add(
+                'submit',
+                SubmitType::class
+            )
+        ;
     }
-    
+
     /**
      * {@inheritdoc}
      */
