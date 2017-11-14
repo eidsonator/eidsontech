@@ -4,6 +4,7 @@
    {% for post in posts %}
        <div class="card">
            <div class="card-body posts">
+               <small>Date Published: {{ post.published | date('j F, Y') }}</small>
                {{ post.intro  | raw }}
 
                <a href="/post/{{ post.url }}">Read More</a>
