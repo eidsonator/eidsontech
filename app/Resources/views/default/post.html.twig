@@ -52,6 +52,7 @@
 
         {{ post.html  | raw }}
 
+        Date Published: {{ post.published | date('j F, Y') }}
         <div class="social-media-buttons">
             <div id="fb-root"></div>
             <div class="float-left">
