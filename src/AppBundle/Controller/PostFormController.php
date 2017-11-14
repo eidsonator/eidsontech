@@ -11,12 +11,19 @@ use Symfony\Component\HttpFoundation\Request;
 class PostFormController extends Controller
 {
     /**
-     * @Route("/admin/form/post", name="")
+     * @Route("/admin/form/post/{id}", name="admin-form-post")
      * @return \Symfony\Component\HttpFoundation\Response
      */
-    public function indexAction(Request $request)
+    public function indexAction(Request $request, $id = null)
     {
-        $post = new Post();
+        if ($id) {
+            $post = $this->getDoctrine()
+                ->getRepository('AppBundle:Post')
+                ->findOneBy(['id' => $id]);
+        } else {
+            $post = new Post();
+        }
+
         $form = $this->createForm(PostType::class, $post);
         $form->handleRequest($request);
         if ($form->isSubmitted() && $form->isValid()) {
