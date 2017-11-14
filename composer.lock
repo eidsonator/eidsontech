@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "0249c3d9d6ded9fa8989400764a1885d",
+    "content-hash": "f88ed2ddd4f38a5216ccd613e63a5bac",
     "packages": [
         {
             "name": "andres-montanez/magallanes",
@@ -899,6 +899,58 @@
                 "orm"
             ],
             "time": "2017-10-23T18:21:04+00:00"
+        },
+        {
+            "name": "emanueleminotto/simple-array-bundle",
+            "version": "1.0.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/EmanueleMinotto/SimpleArrayBundle.git",
+                "reference": "0c03c85d0aaaf3f9e9dafa95c45fb2f58655e54e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/EmanueleMinotto/SimpleArrayBundle/zipball/0c03c85d0aaaf3f9e9dafa95c45fb2f58655e54e",
+                "reference": "0c03c85d0aaaf3f9e9dafa95c45fb2f58655e54e",
+                "shasum": ""
+            },
+            "require": {
+                "symfony/dependency-injection": "^2.5|^3.0",
+                "symfony/doctrine-bridge": "^2.5|^3.0",
+                "symfony/form": "^2.5|^3.0"
+            },
+            "require-dev": {
+                "phpunit/phpunit": "^4.0|^5.0"
+            },
+            "suggest": {
+                "beberlei/DoctrineExtensions": "To use the MySQL FIND_IN_SET function"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "exclude-from-classmap": [
+                    "/Tests/"
+                ],
+                "psr-4": {
+                    "EmanueleMinotto\\SimpleArrayBundle\\": "."
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Emanuele Minotto",
+                    "email": "minottoemanuele@gmail.com"
+                }
+            ],
+            "description": "Symfony 2 bundle for simple tags management, based on doctrine 2 simple_array type.",
+            "time": "2016-11-19T04:55:17+00:00"
         },
         {
             "name": "fig/link-util",
