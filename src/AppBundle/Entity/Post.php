@@ -2,11 +2,11 @@
 
 namespace AppBundle\Entity;
 
-use Doctrine\ORM\Mapping as ORM;
 use AppBundle\Util\Markdown;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
- * Post
+ * Post.
  *
  * @ORM\Table(name="post")
  * @ORM\Entity(repositoryClass="AppBundle\Repository\PostRepository")
@@ -84,7 +84,7 @@ class Post
     }
 
     /**
-     * Get id
+     * Get id.
      *
      * @return int
      */
@@ -94,7 +94,7 @@ class Post
     }
 
     /**
-     * Set url
+     * Set url.
      *
      * @param string $url
      *
@@ -108,7 +108,7 @@ class Post
     }
 
     /**
-     * Get url
+     * Get url.
      *
      * @return string
      */
@@ -118,7 +118,7 @@ class Post
     }
 
     /**
-     * Set title
+     * Set title.
      *
      * @param string $title
      *
@@ -132,7 +132,7 @@ class Post
     }
 
     /**
-     * Get title
+     * Get title.
      *
      * @return string
      */
@@ -142,7 +142,7 @@ class Post
     }
 
     /**
-     * Set image
+     * Set image.
      *
      * @param string $image
      *
@@ -156,7 +156,7 @@ class Post
     }
 
     /**
-     * Get image
+     * Get image.
      *
      * @return string
      */
@@ -166,7 +166,7 @@ class Post
     }
 
     /**
-     * Set tags
+     * Set tags.
      *
      * @param array $tags
      *
@@ -180,7 +180,7 @@ class Post
     }
 
     /**
-     * Get tags
+     * Get tags.
      *
      * @return array
      */
@@ -190,7 +190,7 @@ class Post
     }
 
     /**
-     * Set markdown
+     * Set markdown.
      *
      * @param string $markdown
      *
@@ -204,7 +204,7 @@ class Post
     }
 
     /**
-     * Get markdown
+     * Get markdown.
      *
      * @return string
      */
@@ -214,7 +214,7 @@ class Post
     }
 
     /**
-     * Set published
+     * Set published.
      *
      * @param \DateTime $published
      *
@@ -228,7 +228,7 @@ class Post
     }
 
     /**
-     * Get published
+     * Get published.
      *
      * @return \DateTime
      */
@@ -238,7 +238,7 @@ class Post
     }
 
     /**
-     * Set slug
+     * Set slug.
      *
      * @param string $slug
      *
@@ -252,7 +252,7 @@ class Post
     }
 
     /**
-     * Get slug
+     * Get slug.
      *
      * @return string
      */
@@ -262,7 +262,7 @@ class Post
     }
 
     /**
-     * Set keywords
+     * Set keywords.
      *
      * @param array $keywords
      *
@@ -276,7 +276,7 @@ class Post
     }
 
     /**
-     * Get keywords
+     * Get keywords.
      *
      * @return array
      */
@@ -286,7 +286,7 @@ class Post
     }
 
     /**
-     * Get text
+     * Get text.
      *
      * @return string
      */
@@ -307,7 +307,7 @@ class Post
         for ($i = 0; $i <= $end; $i++) {
             $md .= $lines[$i];
         }
+
         return Markdown::toHtml($md);
     }
 }
-
