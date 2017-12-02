@@ -9,17 +9,28 @@ class DefaultController extends Controller
 {
     /**
      * @Route("/", name="homepage")
-     * @Route("/posts")
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
      */
     public function indexAction()
+    {
+        $latest = $this->getDoctrine()
+            ->getRepository('AppBundle:Post')
+            ->findOneBy([], ['published' => 'DESC']);
+
+        return $this->render(':default:index.html.twig', [
+            'post' => $latest,
+        ]);
+    }
+
+    /**
+     * @Route("/post", name="blog")
+     */
+    public function postsAction()
     {
         $posts = $this->getDoctrine()
             ->getRepository('AppBundle:Post')
             ->findBy([], ['published' => 'DESC']);
 
-        return $this->render('default/index.html.twig', [
+        return $this->render('default/posts.html.twig', [
             'posts' => $posts,
         ]);
     }

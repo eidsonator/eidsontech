@@ -1,20 +1,42 @@
-{% extends 'base.html.twig' %}
-
-{% block canonical_link %}https://eidson.info/posts{% endblock %}
+{% extends '::base.html.twig' %}
 
 {% block body %}
-   {% for post in posts %}
-       <div class="card">
-           <div class="card-body posts">
-               <small>Date Published: {{ post.published | date('j F, Y') }}</small>
-               {% if is_granted('ROLE_SUPER_ADMIN') %}
-                <a href="{{ url('admin-form-post') }}/{{ post.id }}">Edit</a>
-               {% endif %}
-               {{ post.intro  | raw }}
+    <div class="row">
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Latest post</h2>
+                </div>
+                {% include 'default/post.teaser.html.twig' %}
+                <div class="card-footer">
+                    <h3><a href="{{ url('blog') }}">See all...</a> </h3>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>
+                        <i class="fa fa-twitter"></i>
+                        Twitter
+                    </h2>
+                </div>
+                <div class="card-body" style="height: 660px; overflow-y: scroll">
+                    <a class="twitter-timeline" href="https://twitter.com/ToddEidson?ref_src=twsrc%5Etfw">Tweets by ToddEidson</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div class="card-footer">
+                    <h3>
+                        <a href="">
+                            Follow Me...
+                        </a>
 
-               <a href="/post/{{ post.url }}">Read More</a>
-           </div>
-       </div>
-   {% endfor %}
+                    </h3>
+                </div>
+            </div>
+        </div>
+    </div>
+
 {% endblock %}
-

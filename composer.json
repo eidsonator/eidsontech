@@ -19,6 +19,12 @@
             "vendor/symfony/symfony/src/Symfony/Component/VarDumper/Resources/functions/dump.php"
         ]
     },
+    "repositories": [
+        {
+            "type": "vcs",
+            "url": "git@github.com:greenskies/WebLogViewerBundle.git"
+        }
+    ],
     "require": {
         "php": ">=7.1.0",
         "andres-montanez/magallanes": "^3.3",

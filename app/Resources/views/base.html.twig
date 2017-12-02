@@ -44,6 +44,9 @@
                     <a class="nav-link" href="{{ url('homepage') }}">Home<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
+                    <a class="nav-link" href="{{ url('blog') }}">Blog</a>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="{{ url('resume') }}">Resume</a>
                 </li>
             </ul>
@@ -89,7 +92,7 @@
         </div>
     </nav>
 
-        <div class="container">
+        <div class="container" style="margin-top: 15px;">
             <div class="row">
                 {% block column %}
                 <div class="col-sm-9">
