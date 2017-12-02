@@ -17,6 +17,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new FOS\UserBundle\FOSUserBundle(),
             new EmanueleMinotto\SimpleArrayBundle\SimpleArrayBundle(),
+            new Greenskies\WebLogViewerBundle\WebLogViewerBundle(),
             new AppBundle\AppBundle(),
         ];
 

@@ -4,3 +4,7 @@ app:
 
 fos_user:
     resource: '@FOSUserBundle/Resources/config/routing/all.xml'
+
+greenskies_log_viewer:
+    resource: '@WebLogViewerBundle/Controller'
+    type:   annotation
