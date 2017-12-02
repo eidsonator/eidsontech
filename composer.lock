@@ -2720,7 +2720,9 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": [],
+    "stability-flags": {
+        "greenskies/web-log-viewer-bundle": 20
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
