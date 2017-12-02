@@ -5,16 +5,9 @@
 {% block body %}
    {% for post in posts %}
        <div class="card">
-           <div class="card-body posts">
-               <small>Date Published: {{ post.published | date('j F, Y') }}</small>
-               {% if is_granted('ROLE_SUPER_ADMIN') %}
-                <a href="{{ url('admin-form-post') }}/{{ post.id }}">Edit</a>
-               {% endif %}
-               {{ post.intro  | raw }}
-
-               <a href="/post/{{ post.url }}">Read More</a>
-           </div>
+           {% include 'default/post.teaser.html.twig' %}
        </div>
+
    {% endfor %}
 {% endblock %}
 

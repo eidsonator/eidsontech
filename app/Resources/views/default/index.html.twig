@@ -2,14 +2,40 @@
 
 {% block body %}
     <div class="row">
-        Stuff
     </div>
     <div class="row">
         <div class="col-sm-6">
-            Github
+            <div class="card">
+                <div class="card-header">
+                    <h2>Latest post</h2>
+                </div>
+                {% include 'default/post.teaser.html.twig' %}
+                <div class="card-footer">
+                    <h3><a href="{{ url('blog') }}">See all...</a> </h3>
+                </div>
+            </div>
         </div>
-        <div class="col-sm-6" style="height: 448px; overflow-y: scroll">
-            <a class="twitter-timeline" href="https://twitter.com/ToddEidson?ref_src=twsrc%5Etfw">Tweets by ToddEidson</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+        <div class="col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h2>
+                        <i class="fa fa-twitter"></i>
+                        Twitter
+                    </h2>
+                </div>
+                <div class="card-body" style="height: 660px; overflow-y: scroll">
+                    <a class="twitter-timeline" href="https://twitter.com/ToddEidson?ref_src=twsrc%5Etfw">Tweets by ToddEidson</a>
+                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+                </div>
+                <div class="card-footer">
+                    <h3>
+                        <a href="">
+                            Follow Me...
+                        </a>
+
+                    </h3>
+                </div>
+            </div>
         </div>
     </div>
 

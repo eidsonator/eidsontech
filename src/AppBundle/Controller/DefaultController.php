@@ -12,7 +12,13 @@ class DefaultController extends Controller
      */
     public function indexAction()
     {
-        return $this->render(':default:index.html.twig');
+        $latest = $this->getDoctrine()
+            ->getRepository('AppBundle:Post')
+            ->findOneBy([], ['published' => 'DESC']);
+
+        return $this->render(':default:index.html.twig', [
+            'post' => $latest,
+        ]);
     }
 
     /**
@@ -24,11 +30,10 @@ class DefaultController extends Controller
             ->getRepository('AppBundle:Post')
             ->findBy([], ['published' => 'DESC']);
 
-        return $this->render('default/index.html.twig', [
+        return $this->render('default/posts.html.twig', [
             'posts' => $posts,
         ]);
     }
-
 
     /**
      * @Route("/post/{post}", name="post")
