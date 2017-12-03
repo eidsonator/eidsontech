@@ -22,38 +22,6 @@ class DefaultController extends Controller
     }
 
     /**
-     * @Route("/post", name="blog")
-     */
-    public function postsAction()
-    {
-        $posts = $this->getDoctrine()
-            ->getRepository('AppBundle:Post')
-            ->findBy([], ['published' => 'DESC']);
-
-        return $this->render('default/posts.html.twig', [
-            'posts' => $posts,
-        ]);
-    }
-
-    /**
-     * @Route("/post/{post}", name="post")
-     *
-     * @param $post
-     *
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    public function postAction($post)
-    {
-        $post = $this->getDoctrine()
-            ->getRepository('AppBundle:Post')
-            ->findOneBy(['url' => $post]);
-
-        return $this->render('default/post.html.twig', [
-            'post' => $post,
-        ]);
-    }
-
-    /**
      * @Route("/resume", name="resume")
      *
      * @return \Symfony\Component\HttpFoundation\Response

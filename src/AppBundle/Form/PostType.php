@@ -4,6 +4,7 @@ namespace AppBundle\Form;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 
@@ -19,7 +20,15 @@ class PostType extends AbstractType
             ->add('title')
             ->add('image')
             ->add('tags')
-            ->add('markdown')
+            ->add(
+                'markdown',
+                TextareaType::class,
+                [
+                    'attr' => [
+                        'rows' => 40,
+                    ],
+                ]
+            )
             ->add('published')
             ->add('slug')
             ->add('keywords')
