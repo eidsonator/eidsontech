@@ -2,6 +2,7 @@
 
 {% block description %}{{ post.slug }}{% endblock %}
 {% block keywords %}{% for keyword in post.keywords %}{{ keyword }},{% endfor %}{% endblock %}
+{% block title %}{{ post.title }} - eidson.info{% endblock %}
 
 {% block meta %}
         <meta property="og:url" content="https://eidson.info/post/{{ post.url }}">
