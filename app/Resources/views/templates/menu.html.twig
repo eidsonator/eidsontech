@@ -16,71 +16,17 @@
             </li>
         </ul>
         <ul class="nav navbar-nav ml-auto" >
-            <li>
-                <a href="https://dev.to/eidsonator"
-                   target="_blank"
-                   class="nav-link"
-                   title="dev.to"
-                   >
-                    <i class="fa fa-dev-to fa-2x"></i>
-                </a>
-            </li>
-
-            <li>
-                <a href="https://eidson.info/rss"
-                   target="_blank"
-                   class="nav-link"
-                   title="rss feed">
-                    <i class="fa fa-rss-square fa-2x"></i>
-                </a>
-            </li>
-
-            <li>
-                <a href="https://github.com/eidsonator"
-                   target="_blank"
-                   class="nav-link"
-                   title="GitHub"
-                >
-                    <i class="fa fa-github-square fa-2x"></i>
-                </a>
-            </li>
-            <li>
-                <a href="http://lnkd.in/Q6ic46"
-                   target="_blank"
-                   class="nav-link"
-                   title="LinkedIn"
-                >
-                    <i class="fa fa-linkedin-square fa-2x" ></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.facebook.com/toddEidson"
-                   target="_blank"
-                   class="nav-link"
-                   title="Facebook"
-                >
-                    <i class="fa fa-facebook-square fa-2x" ></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://twitter.com/toddeidson"
-                   target="_blank"
-                   class="nav-link"
-                   title="Twitter"
-                >
-                    <i class="fa fa-twitter-square fa-2x" ></i>
-                </a>
-            </li>
-            <li>
-                <a href="https://www.instagram.com/eidsonator/"
-                   target="_blank"
-                   class="nav-link"
-                   title="Instagram"
-                >
-                    <i class="fa fa-instagram fa-2x" ></i>
-                </a>
-            </li>
+            {% for link in social_media.get() %}
+                <li>
+                    <a href="{{ link.href }}"
+                       target="_blank"
+                       class="nav-link"
+                       title="{{ link.title }}"
+                    >
+                        <i class="fa {{ link.icon }} fa-2x"></i>
+                    </a>
+                </li>
+            {% endfor %}
         </ul>
-
     </div>
 </nav>

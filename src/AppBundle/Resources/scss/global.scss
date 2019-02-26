@@ -39,6 +39,8 @@ blockquote {
 
 .fa-dev-to {
     color: black;
+    overflow: hidden;
+    border-radius: 8px;
 }
 
 .fa-rss-square {
@@ -59,4 +61,14 @@ blockquote {
 
 .fa-instagram {
     color: #405de6;
+}
+
+
+.fa-stack-overflow {
+    color: #f48024;
+}
+
+.fa-stack-overflow.fa-2x {
+    font-size: 1.7em;
+    padding-top: 2px;
 }
