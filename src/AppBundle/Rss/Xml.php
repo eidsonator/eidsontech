@@ -1,10 +1,4 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: todd
- * Date: 2/22/19
- * Time: 6:26 PM
- */
 
 namespace AppBundle\Rss;
 

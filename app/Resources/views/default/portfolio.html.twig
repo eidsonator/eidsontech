@@ -1,0 +1,92 @@
+{% extends 'base.html.twig' %}
+
+{% block canonical_link %}https://eidson.info/portfolio{% endblock %}
+
+{% block main_row %}
+<div class="row">
+    <div class="col-xs-12">
+        <table class="table table-striped">
+            <tr>
+                <th>Project</th>
+                <th>url</th>
+                <th>Repo</th>
+                <th>Language(s)</th>
+                <th>Framework(s)</th>
+                <th>Description</th>
+            </tr>
+            <tr>
+                <td>eidson.info</td>
+                <td><a href="https://eidson.info" target="_blank">eidson.info</a></td>
+                <td><a href="https://github.com/eidsonator/eidson.info" target="_blank">eidson.info</a></td>
+                <td>
+                    <ul>
+                        <li>php 7</li>
+                        <li>JavaScript</li>
+                        <li>HTML 5</li>
+                        <li>CSS 3</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Symfony</li>
+                        <li>Bootstrap</li>
+                        <li>jQuery</li>
+                    </ul>
+                </td>
+                <td>
+                    This site. My home-rolled blogging platform.
+                </td>
+            </tr>
+
+            <tr>
+                <td>Simon Says</td>
+                <td><a href="https://eidsonator.github.io/simonSays/" target="_blank">eidsonator.github.io/simonSays/</a></td>
+                <td><a href="https://github.com/eidsonator/simonSays" target="_blank">simonSays</a></td>
+                <td>
+                    <ul>
+                        <li>Ruby</li>
+                        <li>JavaScript</li>
+                        <li>HTML 5</li>
+                        <li>CSS 3</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Jekyll</li>
+                        <li>Bootstrap</li>
+                        <li>jQuery</li>
+                    </ul>
+                </td>
+                <td>
+                    Funny conversations with my son.
+                </td>
+            </tr>
+
+            <tr>
+                <td>Todd Norris<br>(Java)<br><strong class="alert-danger">NSFW</strong></td>
+                <td><a href="https://todd-norris-play.herokuapp.com/" target="_blank">todd-norris-play.herokuapp.com/</a></td>
+                <td><a href="https://github.com/eidsonator/todd-norris-java-play" target="_blank">todd-norris-java-play</a></td>
+                <td>
+                    <ul>
+                        <li>Java</li>
+                        <li>JavaScript</li>
+                        <li>HTML 5</li>
+                        <li>CSS 3</li>
+                    </ul>
+                </td>
+                <td>
+                    <ul>
+                        <li>Play</li>
+                        <li>Bootstrap</li>
+                        <li>jQuery</li>
+                    </ul>
+                </td>
+                <td>
+                    Downloads "Chuck Norris" jokes from an api and
+                </td>
+            </tr>
+
+        </table>
+    </div>
+</div>
+{% endblock %}
